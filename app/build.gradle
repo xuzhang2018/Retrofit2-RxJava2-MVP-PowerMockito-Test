@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.jenway.cuvvadogshowapplication"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+
+}
+
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'com.android.support:design:29.1.0'
+
+    //Glide v4 for image size optimise
+    implementation("com.github.bumptech.glide:glide:4.8.0") {
+        exclude group: "com.android.support"
+    }
+    implementation 'com.android.support:support-fragment:29.1.0'
+    //eventbus for fragment and activity communicate
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //GSON to handle the JSON
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+
+    //Check the memory leak
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    //retrofit for network
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    //dagger 2
+    implementation "com.google.dagger:dagger:2.14.1"
+    implementation "com.google.dagger:dagger-android-support:2.14.1"
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.14.1"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.14.1"
+    //Rx2
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.15.0'
+    testImplementation "org.robolectric:robolectric:4.3"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation files('libs\\powermock-mockito2-2.0.2-full.jar')
+    implementation files('libs\\cglib-nodep-3.2.9.jar')
+    implementation files('libs\\hamcrest-core-1.3.jar')
+    implementation files('libs\\javassist-3.24.0-GA.jar')
+}

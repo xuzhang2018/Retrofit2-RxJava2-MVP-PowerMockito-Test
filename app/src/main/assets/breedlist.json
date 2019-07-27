@@ -1,0 +1,56 @@
+{
+  "message": {
+    "affenpinscher": [],
+    "african": [],
+    "airedale": [],
+    "bulldog": [
+      "boston",
+      "english",
+      "french"
+    ],
+    "bullterrier": [
+      "staffordshire"
+    ],
+    "cairn": [],
+    "cattledog": [
+      "australian"
+    ],
+    "chihuahua": [],
+    "chow": [],
+    "clumber": [],
+    "cockapoo": [],
+    "collie": [
+      "border"
+    ],
+    "coonhound": [],
+    "corgi": [
+      "cardigan"
+    ],
+    "cotondetulear": [],
+    "dachshund": [],
+    "dalmatian": [],
+    "dane": [
+      "great"
+    ],
+    "deerhound": [
+      "scottish"
+    ],
+    "dhole": [],
+    "dingo": [],
+    "doberman": [],
+    "elkhound": [
+      "norwegian"
+    ],
+    "entlebucher": [],
+    "eskimo": [],
+    "frise": [
+      "bichon"
+    ],
+    "germanshepherd": [],
+    "greyhound": [
+      "italian"
+    ],
+    "vizsla": []
+  },
+  "status": "success"
+}

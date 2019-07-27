@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="5dp"
+    android:gravity="center"
+    android:background="@color/colorAccent">
+    <CheckBox
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:id="@+id/breed_item_cb"
+        android:layout_gravity="center"
+        android:layout_alignParentLeft="true"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/breed_item_sub_breed"
+        android:tag="hide"
+        android:src="@mipmap/baseline_expand_more_white_24"
+        android:layout_alignParentRight="true"/>
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/breed_item_iv"
+        android:layout_toLeftOf="@id/breed_item_sub_breed"
+        android:layout_marginRight="50dp"/>
+    <TextView
+        android:id="@+id/breed_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/breed_item_cb"
+        android:layout_toLeftOf="@id/breed_item_iv"
+        android:textColor="@android:color/background_light"
+        android:gravity="center|left"
+        android:text="test"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
