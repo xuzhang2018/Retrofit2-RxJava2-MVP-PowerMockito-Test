@@ -14,6 +14,7 @@ public class MyApplication extends Application {
      * The constant DEBUG.
      */
     public static boolean DEBUG = false;
+
     private static MyApplication singleton;
     private static AppComponent appComponent;
 
@@ -30,11 +31,12 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         singleton = this;
-        InitInjector();
-        InitConfig();
         if (BuildConfig.DEBUG) {
             DEBUG = true;
         }
+        InitInjector();
+        InitConfig();
+
     }
 
     /**

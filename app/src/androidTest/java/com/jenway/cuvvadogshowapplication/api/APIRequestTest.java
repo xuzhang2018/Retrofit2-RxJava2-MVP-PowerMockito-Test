@@ -20,27 +20,29 @@ import okhttp3.ResponseBody;
 
 import static org.junit.Assert.assertEquals;
 
-public class APIRequestTest {
 
-    IBaseApi baseApi;
-    MockRetrofitHelper retrofitHelper;
+/**
+ * by Xu
+ * test the retrofit service
+ * Only load the local data when the debug mod is on
+ */
+
+public class APIRequestTest {
 
     @Before
     public void setUp() throws Exception {
-        retrofitHelper = new MockRetrofitHelper();
-        baseApi = retrofitHelper.create(IBaseApi.class);
     }
 
     @After
     public void tearDown() throws Exception {
-        retrofitHelper = null;
+
     }
 
     @Test
     public void testLoadBreedList() throws Exception {
-        retrofitHelper.setDataName("breedlist.json");
+        RetrofitService.mockDataName = "breedlist.json";
         TestObserver<NetData> testObserver = new TestObserver<>();
-        baseApi.getAll().subscribe(testObserver);
+        RetrofitService.getAll().subscribe(testObserver);
         testObserver.awaitTerminalEvent();
         NetData data = testObserver.values().get(0);
         List<BaseEntity> breeds = NetBean.CovertTheNetDataToBreedList(data);
@@ -52,9 +54,9 @@ public class APIRequestTest {
 
     @Test
     public void testLoadBreedImageAddress() throws Exception {
-        retrofitHelper.setDataName("breedImage.json");
+        RetrofitService.mockDataName = "breedImage.json";
         TestObserver<NetUriData> testObserver = new TestObserver<>();
-        baseApi.getBreedRandomImageAddress("").subscribe(testObserver);
+        RetrofitService.baseApi.getBreedRandomImageAddress("").subscribe(testObserver);
         testObserver.awaitTerminalEvent();
         NetUriData data = testObserver.values().get(0);
         assertEquals(data.getMessage(), "https://images.dog.ceo/breeds/schnauzer-giant/n02097130_5347.jpg");
@@ -62,9 +64,9 @@ public class APIRequestTest {
 
     @Test
     public void testLoadBreedImage() throws Exception {
-        retrofitHelper.setDataName("Bitmap");
+        RetrofitService.mockDataName = "Bitmap";
         TestObserver<ResponseBody> testObserver = new TestObserver<>();
-        baseApi.getBreedImage("https://images.dog.ceo//breeds//schnauzer-giant//n02097130_5347.jpg").subscribe(testObserver);
+        RetrofitService.baseApi.getBreedImage("https://images.dog.ceo//breeds//schnauzer-giant//n02097130_5347.jpg").subscribe(testObserver);
         testObserver.awaitTerminalEvent();
         ResponseBody data = testObserver.values().get(0);
         assertEquals(data.contentType().toString(), "image/jpeg");

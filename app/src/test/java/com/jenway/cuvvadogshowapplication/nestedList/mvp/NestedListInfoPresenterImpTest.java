@@ -289,27 +289,5 @@ public class NestedListInfoPresenterImpTest {
         verify(view).updateRecyclerViewItem(anyInt(), any());
         verify(view).onLoadInfoSuccess();
     }
-
-//    private ArrayList<Integer> updateShowList() {
-//        ArrayList<Integer> breedShowIndexList = new ArrayList<>();
-//        int count = 0;
-//        for (int i = breedLoadedIndex; i < breedInfoFullList.size(); i++) {
-//            if (count == Config.maxloadingItemCount) {
-//                if (i <= breedInfoFullList.size() - 1) {
-//                    breedLoadedIndex = i;
-//                }
-//                break;
-//            }
-//            breedShowIndexList.add(i);
-//            if (breedInfoFullList.get(i) instanceof BreedInfo) {
-//                if (i + 1 <= breedInfoFullList.size() - 1) {
-//                    breedLoadedIndex = i + 1;
-//                }
-//                count++;
-//            }
-//        }
-//        return breedShowIndexList;
-//    }
-
-
+    
 }

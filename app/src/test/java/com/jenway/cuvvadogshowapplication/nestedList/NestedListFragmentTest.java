@@ -1,23 +1,20 @@
 package com.jenway.cuvvadogshowapplication.nestedList;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import com.jenway.cuvvadogshowapplication.base.BaseFragment;
-import com.jenway.cuvvadogshowapplication.nestedList.adapter.NestedListAdapter;
-
 import org.junit.After;
 import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
+import org.junit.Test;
 
-
-@RunWith(RobolectricTestRunner.class)
-
+/**
+ * by Xu
+ * Robolectrics4 has not support Androidx fragment yet
+ * Only load the local data when the debug mod is on
+ * check if the fragment lifecyle is working fine
+ */
+//@RunWith(RobolectricTestRunner.class)
 public class NestedListFragmentTest {
 
-    private BaseFragment fragment;
-    private LinearLayoutManager mockLayoutManager;
-    private NestedListAdapter mockNestedListAdapter;
+//    private BaseFragment fragment;
+
 
     @Before
     public void setUp() throws Exception {
@@ -33,5 +30,18 @@ public class NestedListFragmentTest {
 
     @After
     public void tearDown() throws Exception {
+    }
+
+
+    @Test
+    public void testOnresume() throws Exception {
+    }
+
+    @Test
+    public void testOnSaveInstanceState() throws Exception {
+    }
+
+    @Test
+    public void testOnStop() throws Exception {
     }
 }

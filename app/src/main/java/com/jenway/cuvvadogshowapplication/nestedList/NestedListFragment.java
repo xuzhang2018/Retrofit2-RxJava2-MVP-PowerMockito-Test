@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.jenway.cuvvadogshowapplication.MyApplication;
 import com.jenway.cuvvadogshowapplication.R;
 import com.jenway.cuvvadogshowapplication.base.BaseFragment;
 import com.jenway.cuvvadogshowapplication.dagger.DaggerNestedListInfoComponent;
@@ -54,9 +56,10 @@ public class NestedListFragment extends BaseFragment<NestedListInfoPresenterImp>
     private int lastOffset = 0;//RecyclerView offset
     private GridLayoutManager manager;
     private NestedListInfoPresenterImp imp;//use to save the data when take from stack
-
-
     private NestedListAdapter mNestedListAdapter;
+
+    private Button testToastButton;
+    private Button testDialogButton;
 
     public NestedListFragment() {
         // Required empty public constructor
@@ -93,6 +96,31 @@ public class NestedListFragment extends BaseFragment<NestedListInfoPresenterImp>
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
+        //only for test
+        if (MyApplication.DEBUG) {
+            testToastButton = view.findViewById(R.id.test_toast_button);
+            testToastButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showToast("test toast");
+                }
+            });
+            testDialogButton = view.findViewById(R.id.test_dialog_button);
+            testDialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (view.getTag().toString().equals("show")) {
+                        view.setTag("hide");
+                        mActivity.showDialog("test dialog");
+                    } else {
+                        view.setTag("show");
+                        mActivity.dismissDialog();
+                    }
+                }
+            });
+        }
+
+
         mRecyclerView = view.findViewById(R.id.nested_rv);
         floatingActionButton = view.findViewById(R.id.breed_detail_screen_fab);
 

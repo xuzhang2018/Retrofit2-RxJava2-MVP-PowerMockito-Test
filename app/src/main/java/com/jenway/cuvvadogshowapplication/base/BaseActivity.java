@@ -81,7 +81,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     //add fragment
-    protected void addFragment(BaseFragment fragment) {
+    public void addFragment(BaseFragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(getFragmentContentId(), fragment, fragment.getClass().getSimpleName())
@@ -91,7 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     //remove fragment
-    protected void removeFragment() {
+    public void removeFragment() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             getSupportFragmentManager().popBackStack();
         } else {
